@@ -1,4 +1,3 @@
-
 FROM python:3.10
 
 WORKDIR /app
@@ -9,8 +8,6 @@ COPY . .
 
 RUN pip install -r requirements.txt
 
-RUN python -m src.db_init
+EXPOSE 21099
 
-EXPOSE 8000
-
-CMD ["flask", "run"]
+CMD ["sh", "-c", "python -m src.db_init && flask run"]

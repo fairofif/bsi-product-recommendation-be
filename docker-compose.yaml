@@ -1,33 +1,4 @@
-# version: "3.8"
-
-# services:
-#   db:
-#     image: postgres:latest
-#     restart: always
-#     environment:
-#       - POSTGRES_USER=postgres
-#       - POSTGRES_PASSWORD=postgres
-#       - POSTGRES_DB=project_bsi
-#     ports:
-#       - "5433:5432"
-#     volumes:
-#       - postgres_data:/var/lib/postgresql/data
-#       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-
-  # flask-app:
-  #   build: .
-  #   restart: always
-  #   depends_on:
-  #     - db
-  #   environment:
-  #     - DATABASE_URL=postgresql://postgres:postgres@db:5432/project_bsi
-  #   ports:
-  #     - "5000:5000"
-  #   volumes:
-  #     - .:/app
-
-# volumes:
-#   postgres_data:
+version: "3.8"
 
 services:
 
@@ -40,6 +11,8 @@ services:
         - POSTGRES_PASSWORD=mypassword
       ports:
         - "5434:5432"
+      networks:
+        - multimatics
       volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
@@ -50,10 +23,16 @@ services:
       - postgres_db
     environment:
       - DATABASE_URL=postgresql+psycopg2://myuser:mypassword@multimatics_postgres:5432/my_postgres_db
+
     ports:
-      - "8000:8000"
+      - "21099:21099"
+    networks:
+      - multimatics
     volumes:
       - .:/app
 
 volumes:
   postgres_data:
+
+networks:
+  multimatics:
