@@ -1,6 +1,6 @@
 from flask import request, jsonify
 from src import app, db
-from src.services import recommend_products
+from src.services import recommend_products, encrypt_data
 from src.models import User, UserFirstChoice
 
 @app.route('/')
@@ -22,7 +22,10 @@ def recommendations():
         gender = input['gender']
         province = input['province']
 
-        new_user = User(age=age, salary=salary, job=job, gender=gender, province=province)
+        encrypted_age = encrypt_data(str(age))
+        encrypted_province = encrypt_data(province)
+
+        new_user = User(age=encrypted_age, salary=salary, job=job, gender=gender, province=encrypted_province)
         db.session.add(new_user)
         db.session.commit()
 
@@ -35,7 +38,7 @@ def recommendations():
     except KeyError as e:
         return jsonify({"Error": "Missing field"}), 400
     except Exception as e:
-        return jsonify({"error": "Internal server error"}), 500
+        return jsonify({"error": str(e)}), 500
     
 @app.route('/user-choices', methods=['POST'])
 def user_choices():
