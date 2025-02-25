@@ -23,7 +23,7 @@ class UserFirstChoice(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    choice = db.Column(TINYINT(), nullable=False)
+    choice = db.Column(db.String(30), nullable=False)
     created_at = db.Column(db.TIMESTAMP, server_default=func.current_timestamp(), nullable=False)
     deleted_at = db.Column(db.TIMESTAMP, nullable=True)
     updated_at = db.Column(db.TIMESTAMP, server_default=func.current_timestamp(), onupdate=func.current_timestamp(), nullable=True)

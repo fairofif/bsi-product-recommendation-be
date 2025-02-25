@@ -1,7 +1,7 @@
 from flask import request, jsonify
 from src import app, db
 from src.services import recommend_products
-from src.models import User
+from src.models import User, UserFirstChoice
 
 @app.route('/')
 def home():
@@ -31,6 +31,26 @@ def recommendations():
         return jsonify({
             "user_id": new_user.id,
             "products": result
+        }), 201
+    except KeyError as e:
+        return jsonify({"Error": "Missing field"}), 400
+    except Exception as e:
+        return jsonify({"error": "Internal server error"}), 500
+    
+@app.route('/user-choices', methods=['POST'])
+def user_choices():
+    try:
+        input = request.get_json()
+
+        user_id = input["user_id"]
+        choice = input["choice"]
+
+        new_choice = UserFirstChoice(user_id=user_id, choice=choice)
+        db.session.add(new_choice)
+        db.session.commit()
+
+        return jsonify({
+            "message": "User choice successfully saved"
         }), 201
     except KeyError as e:
         return jsonify({"Error": "Missing field"}), 400
