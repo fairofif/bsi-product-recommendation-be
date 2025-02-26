@@ -3,8 +3,8 @@ from sqlalchemy.sql import func
 from sqlalchemy.dialects.postgresql import SMALLINT
 from sqlalchemy import Text
 
-class User(db.Model):
-    __tablename__ = 'user'
+class UserInput(db.Model):
+    __tablename__ = 'user_input'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     age = db.Column(db.String(255), nullable=False)
@@ -24,16 +24,16 @@ class UserFirstChoice(db.Model):
     __tablename__ = 'user_first_choice'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user_input_id = db.Column(db.Integer, db.ForeignKey('user_input.id'), nullable=False)
     choice = db.Column(db.String(30), nullable=False)
     created_at = db.Column(db.TIMESTAMP, server_default=func.current_timestamp(), nullable=False)
     deleted_at = db.Column(db.TIMESTAMP, nullable=True)
     updated_at = db.Column(db.TIMESTAMP, server_default=func.current_timestamp(), onupdate=func.current_timestamp(), nullable=True)
 
-    user = db.relationship('User', backref=db.backref('choices', lazy=True))
+    user_input = db.relationship('UserInput', backref=db.backref('choices', lazy=True))
 
     def __repr__(self):
-        return f'<UserFirstChoice {self.id}, UserID: {self.user_id}, Choice: {self.choice}>'
+        return f'<UserFirstChoice {self.id}, UserID: {self.user_input_id}, Choice: {self.choice}>'
 
 class MasterDataProducts(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)

@@ -1,7 +1,7 @@
 from flask import request, jsonify
 from src import app, db
 from src.services import recommend_products, encrypt_data
-from src.models import User, UserFirstChoice, MasterDataProducts, MasterDataSegmentation, SalaryRange, JobType
+from src.models import UserInput, UserFirstChoice, MasterDataProducts, MasterDataSegmentation, SalaryRange, JobType
 from sqlalchemy import or_
 
 @app.route('/')
@@ -37,8 +37,8 @@ def recommendations():
         segmentation = get_user_segmentation(age, salary_range.id, job_type.id)
 
         # Save user data using ID references
-        new_user = User(age=encrypted_age, salary=salary_range.id, job=job_type.id, gender=gender, province=encrypted_province, segmentation=segmentation)
-        db.session.add(new_user)
+        new_user_input = UserInput(age=encrypted_age, salary=salary_range.id, job=job_type.id, gender=gender, province=encrypted_province, segmentation=segmentation)
+        db.session.add(new_user_input)
         db.session.commit()
 
         # Get recommended products
@@ -46,7 +46,7 @@ def recommendations():
 
         if segmentation == "Eksplorator Finansial":
             return jsonify({
-                "user_id": new_user.id,
+                "user_input_id": new_user_input.id,
                 "segmentation": segmentation,
                 "products": [
                     {
@@ -71,7 +71,7 @@ def recommendations():
             }), 201
 
         return jsonify({
-            "user_id": new_user.id,
+            "user_input_id": new_user_input.id,
             "segmentation": segmentation,
             "products": format_products(result)
         }), 201
@@ -88,10 +88,10 @@ def user_choices():
     try:
         input = request.get_json()
 
-        user_id = input["user_id"]
+        user_input_id = input["user_input_id"]
         choice = input["choice"]
 
-        new_choice = UserFirstChoice(user_id=user_id, choice=choice)
+        new_choice = UserFirstChoice(user_input_id=user_input_id, choice=choice)
         db.session.add(new_choice)
         db.session.commit()
 
