@@ -19,4 +19,4 @@ model = 'src/models/xgb_models.pkl'
 with open(model, 'rb') as file:
     model = pickle.load(file)
 
-from src import routes, models
+from src import routes, routes_master_data, models

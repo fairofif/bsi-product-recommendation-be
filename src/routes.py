@@ -1,7 +1,7 @@
 from flask import request, jsonify
 from src import app, db
 from src.services import recommend_products, encrypt_data
-from src.models import User, UserFirstChoice
+from src.models import User, UserFirstChoice, MasterDataProducts
 
 @app.route('/')
 def home():
@@ -33,13 +33,13 @@ def recommendations():
 
         return jsonify({
             "user_id": new_user.id,
-            "products": result
+            "products": format_products(result)
         }), 201
     except KeyError as e:
         return jsonify({"Error": "Missing field"}), 400
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    
+
 @app.route('/user-choices', methods=['POST'])
 def user_choices():
     try:
@@ -61,4 +61,8 @@ def user_choices():
         return jsonify({"error": "Internal server error"}), 500
 
 
-    
+def format_products(product_names):
+
+    products = MasterDataProducts.query.filter(MasterDataProducts.name.in_(product_names)).all()
+
+    return [{"name": product.name, "alias": product.alias} for product in products]

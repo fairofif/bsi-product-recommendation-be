@@ -33,3 +33,12 @@ class UserFirstChoice(db.Model):
     def __repr__(self):
         return f'<UserFirstChoice {self.id}, UserID: {self.user_id}, Choice: {self.choice}>'
 
+class MasterDataProducts(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    alias = db.Column(db.String(20), nullable=False)
+    name = db.Column(db.String(30), nullable=False)
+    desc = db.Column(db.String(200), nullable=False)
+    image_uri = db.Column(db.String(200), nullable=True)
+
+    def __repr__(self):
+        return f'<MasterDataProducts {self.id}, alias: {self.alias}, name: {self.name}>'
