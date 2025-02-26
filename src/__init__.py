@@ -28,4 +28,4 @@ limiter = Limiter(
     default_limits=["100 per minute"]
 )
 
-from src import routes, models
+from src import routes, routes_master_data, models
