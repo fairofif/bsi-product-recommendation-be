@@ -51,15 +51,21 @@ def recommendations():
                 "products": [
                     {
                         "alias": "tabungan-wadiah",
-                        "name": "Tabungan Wadiah"
+                        "name": "Tabungan Wadiah",
+                        "desc": "Menjaga Harta Anda Tetap Murni",
+                        "image_uri": "https://i.postimg.cc/rs78t9Qw/tabungan-wadiah.jpg"
                     },
                     {
                         "alias": "tabungan-mudharabah",
-                        "name": "Tabungan Mudharabah"
+                        "name": "Tabungan Mudharabah",
+                        "desc": "Menjaga Harta Anda Tetap Murni",
+                        "image_uri": "https://i.postimg.cc/pXnVMgLh/tabungan-mudharabah.jpg"
                     },
                     {
-                        "alias": "zifwaf",
-                        "name": "ZIFWAF"
+                        "alias": "ziswaf",
+                        "name": "ZISWAF",
+                        "desc": "Berbagi Lebih Mudah, Pahala Lebih Berkah",
+                        "image_uri": "https://i.postimg.cc/4yydcyGB/ziswaf.jpg"
                     }
                 ]
             }), 201
@@ -102,7 +108,7 @@ def format_products(product_names):
 
     products = MasterDataProducts.query.filter(MasterDataProducts.name.in_(product_names)).all()
 
-    return [{"name": product.name, "alias": product.alias} for product in products]
+    return [{"name": product.name, "alias": product.alias, "desc": product.desc, "image_uri": product.image_uri} for product in products]
 
 def get_user_segmentation(age, salary_id, job_id):
     segment = MasterDataSegmentation.query.filter(
