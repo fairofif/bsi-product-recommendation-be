@@ -1,7 +1,8 @@
 from src import app, db
-from src.models import MasterDataProducts, MasterDataSegmentation, SalaryRange, JobType, MasterDataProductsBenefits
+from src.models import MasterDataProducts, MasterDataSegmentation, SalaryRange, JobType, MasterDataProductsBenefits, Province
 
 def clear_master_data():
+    db.session.query(Province).delete()
     db.session.query(MasterDataProductsBenefits).delete()
     db.session.query(MasterDataProducts).delete()
     db.session.query(MasterDataSegmentation).delete()
@@ -23,7 +24,7 @@ def init_products():
         MasterDataProducts(alias="bsi-oto", name="BSI OTO", desc="Punya Kendaraan Impian Kini Lebih Gampang", image_uri="https://i.postimg.cc/q7GMZyM1/bsi-oto.jpg", details="BSI OTO adalah Fasilitas Pembiayaan Kepemilikan kendaraan Mobil Baru, Mobil Bekas dan Motor Baru melalui akad Murabahah dengan Skema Joint Financing antara BSI dan MUF."),
         MasterDataProducts(alias="mitraguna", name="Mitraguna", desc="Solusi tepat untuk penuh ragam kebutuhan", image_uri="https://i.postimg.cc/DZB0ms9S/mitraguna.jpg", details="Mitraguna BSI adalah layanan pembiayaan dari Bank Syariah Indonesia (BSI) yang ditujukan untuk berbagai kebutuhan konsumtif yang halal. Produk ini khusus bagi pegawai tetap yang menerima gaji melalui payroll BSI, tanpa memerlukan agunan, dengan sistem pembayaran otomatis dari gaji bulanan. Mitraguna BSI menggunakan Akad Refinancing Syariah dengan skema Al-Bai' dalam rangka Musyarakah Mutanaqisah (MMQ), yang memungkinkan nasabah memperoleh dana berdasarkan penilaian aset yang mereka miliki"),
         MasterDataProducts(alias="bsi-cicil-emas", name="BSI Cicil Emas", desc="Miliki Emas dengan Angsuran Tetap dan Ringan", image_uri="https://i.postimg.cc/nc6zsnPG/Cilem.webp", details="Cicil Emas merupakan pembiayaan kepemilikan emas Logam Mulia dengan keunggulan dapat membeli emas logam mulia dengan harga saat akad, dapat dicicil, dan angsuran tetap melalui BYOND."),
-        MasterDataProducts(alias="zifwaf", name="ZIFWAF", desc="Berbagi Lebih Mudah, Pahala Lebih Berkah", image_uri="https://i.postimg.cc/4yydcyGB/ziswaf.jpg", details="ZISWAF (Zakat, Infak, Sedekah, dan Wakaf) merupakan layanan sosial yang difasilitasi oleh Bank Syariah Indonesia (BSI) untuk memudahkan nasabah dalam menunaikan kewajiban dan berbagi kepada sesama. Transaksi dapat dilakukan melalui BYOND."),
+        MasterDataProducts(alias="ziswaf", name="ZISWAF", desc="Berbagi Lebih Mudah, Pahala Lebih Berkah", image_uri="https://i.postimg.cc/4yydcyGB/ziswaf.jpg", details="ZISWAF (Zakat, Infak, Sedekah, dan Wakaf) merupakan layanan sosial yang difasilitasi oleh Bank Syariah Indonesia (BSI) untuk memudahkan nasabah dalam menunaikan kewajiban dan berbagi kepada sesama. Transaksi dapat dilakukan melalui BYOND."),
         MasterDataProducts(alias="tabungan-haji", name="Tabungan Haji", desc="Wujudkan Niat Suci Anda Ke Baitullah", image_uri="https://i.postimg.cc/cHs6sTbq/tabungan-haji.jpg", details="Tabungan Haji adalah produk tabungan dalam bentuk Rupiah atau USD yang disediakan untuk membantu nasabah dalam merencanakan perjalanan ibadah haji dengan sistem yang aman, mudah, dan sesuai prinsip syariah. Jika tabungan haji sudah mencapai Rp25.100.000 maka sudah dapat untuk dilakukan pendaftaran porsi haji."),
         MasterDataProducts(alias="tabungan-bisnis", name="Tabungan Bisnis", desc="Kemudahan Transaksi Bisnis Tumbuh Pasti", image_uri="https://i.postimg.cc/L4W47H2F/tabungan-bisnis.jpg", details="Tabungan Bisnis BSI adalah produk tabungan dari Bank Syariah Indonesia (BSI) yang dirancang khusus untuk mendukung kebutuhan transaksi dan pengelolaan keuangan pelaku usaha secara aman, efisien, dan sesuai dengan prinsip syariah."),
     ]
@@ -194,3 +195,23 @@ def init_product_benefits():
     db.session.bulk_save_objects(benefits)
     db.session.commit()
     print("✅ Benefits initialized successfully!")
+
+def init_provinces():
+    provinces = [
+        "Aceh", "Sumatera Utara", "Sumatera Barat", "Riau", "Jambi",
+        "Sumatera Selatan", "Bengkulu", "Lampung", "Kepulauan Bangka Belitung",
+        "Kepulauan Riau", "DKI Jakarta", "Jawa Barat", "Jawa Tengah",
+        "DI Yogyakarta", "Jawa Timur", "Banten", "Bali", "Nusa Tenggara Barat",
+        "Nusa Tenggara Timur", "Kalimantan Barat", "Kalimantan Tengah",
+        "Kalimantan Selatan", "Kalimantan Timur", "Kalimantan Utara",
+        "Sulawesi Utara", "Sulawesi Tengah", "Sulawesi Selatan",
+        "Sulawesi Tenggara", "Gorontalo", "Sulawesi Barat", "Maluku",
+        "Maluku Utara", "Papua", "Papua Barat", "Papua Tengah",
+        "Papua Pegunungan", "Papua Selatan", "Papua Barat Daya"
+    ]
+
+    province_objects = [Province(name=prov) for prov in provinces]
+
+    db.session.bulk_save_objects(province_objects)
+    db.session.commit()
+    print("✅ Provinces initialized successfully!")

@@ -1,6 +1,6 @@
 from flask import request, jsonify
 from src import app, db
-from src.models import MasterDataProducts, MasterDataProductsBenefits
+from src.models import MasterDataProducts, MasterDataProductsBenefits, Province
 
 @app.route('/products', methods=['GET'])
 def products():
@@ -60,6 +60,25 @@ def products_by_alias(alias):
             "datas": product_data
         }
         return jsonify(response), 200
+
+    except Exception as e:
+        return jsonify({
+            "message": str(e),
+            "status": "error",
+            "datas": None
+        }), 500
+
+@app.route('/provinces', methods=['GET'])
+def get_provinces():
+    try:
+        provinces = Province.query.all()
+        province_list = [{"id": prov.id, "name": prov.name} for prov in provinces]
+
+        return jsonify({
+            "message": "Provinces retrieved successfully",
+            "status": "success",
+            "datas": province_list
+        }), 200
 
     except Exception as e:
         return jsonify({

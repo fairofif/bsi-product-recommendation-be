@@ -1,6 +1,6 @@
 from src import app, db
 from src.models import MasterDataProducts, MasterDataSegmentation
-from src.db_init_data import init_segmentation, init_products, init_job_salary, clear_master_data, init_product_benefits
+from src.db_init_data import init_segmentation, init_products, init_job_salary, clear_master_data, init_product_benefits, init_provinces
 
 with app.app_context():
     db.create_all()
@@ -10,5 +10,6 @@ with app.app_context():
     init_products()
     init_product_benefits()
     init_segmentation()
+    init_provinces()
 
 
