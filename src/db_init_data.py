@@ -42,21 +42,25 @@ def init_segmentation():
         MasterDataSegmentation(segment_name="Pemula Mandiri", min_age=17, max_age=25, salary_range_id=1, job_type_id=2),  # Pegawai
 
         MasterDataSegmentation(segment_name="Profesional Berkah", min_age=None, max_age=None, salary_range_id=2, job_type_id=1),  # Mahasiswa
+        MasterDataSegmentation(segment_name="Profesional Berkah", min_age=None, max_age=None, salary_range_id=3, job_type_id=1),  # Mahasiswa
+        MasterDataSegmentation(segment_name="Profesional Berkah", min_age=None, max_age=None, salary_range_id=4, job_type_id=1),  # Mahasiswa
         MasterDataSegmentation(segment_name="Profesional Berkah", min_age=25, max_age=35, salary_range_id=2, job_type_id=2),  # Pegawai
         MasterDataSegmentation(segment_name="Profesional Berkah", min_age=25, max_age=35, salary_range_id=3, job_type_id=2),  # Pegawai
 
         MasterDataSegmentation(segment_name="Syariah Salary Club", min_age=21, max_age=None, salary_range_id=1, job_type_id=3),  # PNS/ASN/BUMN
+        MasterDataSegmentation(segment_name="Syariah Salary Club", min_age=21, max_age=None, salary_range_id=2, job_type_id=3),  # PNS/ASN/BUMN
+        MasterDataSegmentation(segment_name="Syariah Salary Club", min_age=21, max_age=None, salary_range_id=3, job_type_id=3),  # PNS/ASN/BUMN
+        MasterDataSegmentation(segment_name="Syariah Salary Club", min_age=21, max_age=None, salary_range_id=4, job_type_id=3),  # PNS/ASN/BUMN
+        MasterDataSegmentation(segment_name="Syariah Salary Club", min_age=21, max_age=None, salary_range_id=5, job_type_id=3),  # PNS/ASN/BUMN
 
-        MasterDataSegmentation(segment_name="Wirausahawan Sukses", min_age=25, max_age=35, salary_range_id=3, job_type_id=4),  # Wirausaha
-        MasterDataSegmentation(segment_name="Wirausahawan Sukses", min_age=35, max_age=45, salary_range_id=4, job_type_id=4),  # Wirausaha
+        MasterDataSegmentation(segment_name="Wirausahawan Sukses", min_age=25, max_age=45, salary_range_id=3, job_type_id=4),  # Wirausaha
+        MasterDataSegmentation(segment_name="Wirausahawan Sukses", min_age=25, max_age=45, salary_range_id=4, job_type_id=4),  # Wirausaha
 
-        MasterDataSegmentation(segment_name="Pilar Keluarga", min_age=35, max_age=45, salary_range_id=4, job_type_id=2),  # Pegawai
-        MasterDataSegmentation(segment_name="Pilar Keluarga", min_age=45, max_age=60, salary_range_id=5, job_type_id=2),  # Pegawai
+        MasterDataSegmentation(segment_name="Pilar Keluarga", min_age=35, max_age=None, salary_range_id=4, job_type_id=2),  # Pegawai
+        MasterDataSegmentation(segment_name="Pilar Keluarga", min_age=35, max_age=None, salary_range_id=5, job_type_id=2),  # Pegawai
 
-        MasterDataSegmentation(segment_name="Investor Sejati", min_age=35, max_age=45, salary_range_id=5, job_type_id=2),  # Pegawai
-        MasterDataSegmentation(segment_name="Investor Sejati", min_age=35, max_age=45, salary_range_id=5, job_type_id=4),  # Wirausaha
-        MasterDataSegmentation(segment_name="Investor Sejati", min_age=45, max_age=60, salary_range_id=5, job_type_id=2),  # Pegawai
-        MasterDataSegmentation(segment_name="Investor Sejati", min_age=45, max_age=60, salary_range_id=5, job_type_id=4),  # Wirausaha
+        MasterDataSegmentation(segment_name="Investor Sejati", min_age=35, max_age=None, salary_range_id=5, job_type_id=2),  # Pegawai
+        MasterDataSegmentation(segment_name="Investor Sejati", min_age=35, max_age=None, salary_range_id=5, job_type_id=4),  # Wirausaha
 
         MasterDataSegmentation(segment_name="Eksplorator Finansial", min_age=None, max_age=None, salary_range_id=None, job_type_id=None),
     ]
