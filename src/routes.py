@@ -84,7 +84,7 @@ def format_products(product_names):
 
     products = MasterDataProducts.query.filter(MasterDataProducts.name.in_(product_names)).all()
 
-    return [{"name": product.name, "alias": product.alias} for product in products]
+    return [{"name": product.name, "alias": product.alias, "desc": product.desc, "image_uri": product.image_uri} for product in products]
 
 def get_user_segmentation(age, salary_id, job_id):
     segment = MasterDataSegmentation.query.filter(
