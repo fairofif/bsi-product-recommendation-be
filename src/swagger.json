@@ -1,0 +1,178 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Flask API Documentation",
+        "description": "API documentation for Smart Choice",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/recommendations": {
+            "post": {
+                "summary": "Get product recommendations",
+                "tags": [
+                    "Recommendations"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "age": {
+                                        "type": "integer",
+                                        "example": 25
+                                    },
+                                    "salary": {
+                                        "type": "integer",
+                                        "example": 2
+                                    },
+                                    "job": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "gender": {
+                                        "type": "integer",
+                                        "example": 0
+                                    },
+                                    "province": {
+                                        "type": "string",
+                                        "example": "Jawa Barat"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "user_input_id": {
+                                            "type": "integer",
+                                            "example": 123
+                                        },
+                                        "segmentation": {
+                                            "type": "string",
+                                            "example": "Eksplorator Finansial"
+                                        },
+                                        "products": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "alias": {
+                                                        "type": "string",
+                                                        "example": "tabungan-wadiah"
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Tabungan Wadiah"
+                                                    },
+                                                    "desc": {
+                                                        "type": "string",
+                                                        "example": "Menjaga Harta Anda Tetap Murni"
+                                                    },
+                                                    "image_uri": {
+                                                        "type": "string",
+                                                        "example": "https://i.postimg.cc/rs78t9Qw/tabungan-wadiah.jpg"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user-choices": {
+            "post": {
+                "summary": "Save user choices",
+                "tags": [
+                    "User Choices"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "user_input_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "choice": {
+                                        "type": "string",
+                                        "example": "tabungan-wadiah"
+                                    }
+                                },
+                                "required": [
+                                    "user_input_id",
+                                    "choice"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "User choice successfully saved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User choice successfully saved"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Missing required fields",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Error": {
+                                            "type": "string",
+                                            "example": "Missing field"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Internal server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

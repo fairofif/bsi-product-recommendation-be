@@ -1,16 +1,29 @@
-from flask import request, jsonify
+from flask import request, jsonify, send_from_directory
 from src import app, db
 from src.services import recommend_products, encrypt_data
 from src.models import UserInput, UserFirstChoice, MasterDataProducts, MasterDataSegmentation, SalaryRange, JobType
 from sqlalchemy import or_
+from flask_swagger_ui import get_swaggerui_blueprint
+import os
 
 @app.route('/')
 def home():
     return "Hello, Flask in Docker!"
 
-@app.route('/about')
-def about():
-    return "This is the About page"
+SWAGGER_URL = "/swagger"
+API_URL = "/static/swagger.json"  # Path ke file JSON Swagger
+
+swagger_ui_blueprint = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={"app_name": "Flask API Documentation"},
+)
+
+app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
+
+@app.route("/static/swagger.json")
+def swagger_json():
+    return send_from_directory(os.path.dirname(__file__), "swagger.json")
 
 @app.route('/recommendations', methods=['POST'])
 def recommendations():
