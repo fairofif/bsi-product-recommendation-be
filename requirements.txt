@@ -7,3 +7,4 @@ cryptography
 flask-cors
 flask-limiter
 gunicorn
+flask-swagger-ui
