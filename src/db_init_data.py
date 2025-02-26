@@ -166,7 +166,7 @@ def init_product_benefits():
                                           "Mudah & Praktis - Cara sederhana untuk memulai investasi emas"
                                           ]),
         # ZIFWAF
-        (products.get("zifwaf"), ["Mudah & Praktis - Donasi kapan saja melalui superapp BYOND dengan fitur autodebet bulanan",
+        (products.get("ziswaf"), ["Mudah & Praktis - Donasi kapan saja melalui superapp BYOND dengan fitur autodebet bulanan",
                                   "Amanah & Transparan - Bekerja sama dengan 25 LAZNAS resmi, dana tersalurkan tepat sasaran",
                                   "Efisien & Cepat - Transaksi dalam hitungan detik, langsung ke lembaga penerima",
                                   "Pilihan Beragam - Zakat, Infaq, Sedekah, Wakaf, Orang Tua Asuh, dan banyak lagi"
