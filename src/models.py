@@ -14,6 +14,7 @@ class User(db.Model):
     province = db.Column(db.String(255), nullable=False)
     updated_at = db.Column(db.TIMESTAMP, server_default=func.current_timestamp(), onupdate=func.current_timestamp(), nullable=True)
     gender = db.Column(SMALLINT(), nullable=False)
+    segmentation = db.Column(db.String(255), nullable=True)
 
     def __repr__(self):
         return f'<User {self.id}, Age: {self.age}, Gender: {self.gender}>'
@@ -42,3 +43,34 @@ class MasterDataProducts(db.Model):
 
     def __repr__(self):
         return f'<MasterDataProducts {self.id}, alias: {self.alias}, name: {self.name}>'
+
+
+class MasterDataSegmentation(db.Model):
+    __tablename__ = "master_data_segmentation"
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    segment_name = db.Column(db.String(50), nullable=False)
+    min_age = db.Column(db.Integer, nullable=True)
+    max_age = db.Column(db.Integer, nullable=True)
+
+    salary_range_id = db.Column(db.Integer, db.ForeignKey('salary_range.id'), nullable=True)
+    job_type_id = db.Column(db.Integer, db.ForeignKey('job_type.id'), nullable=True)
+
+    salary_range = db.relationship('SalaryRange', backref='segmentations')
+    job_type = db.relationship('JobType', backref='segmentations')
+
+    def __repr__(self):
+        return f"<MasterDataSegmentation {self.id}, Segment: {self.segment_name}>"
+
+class SalaryRange(db.Model):
+    __tablename__ = "salary_range"
+
+    id = db.Column(db.Integer, primary_key=True)
+    range_label = db.Column(db.String(20), nullable=False)
+
+class JobType(db.Model):
+    __tablename__ = "job_type"
+
+    id = db.Column(db.Integer, primary_key=True)
+    job_label = db.Column(db.String(20), nullable=False)
+
