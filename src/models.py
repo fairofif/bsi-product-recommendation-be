@@ -1,6 +1,7 @@
 from src import db
 from sqlalchemy.sql import func
 from sqlalchemy.dialects.postgresql import SMALLINT
+from sqlalchemy import Text
 
 class User(db.Model):
     __tablename__ = 'user'
@@ -40,10 +41,21 @@ class MasterDataProducts(db.Model):
     name = db.Column(db.String(30), nullable=False)
     desc = db.Column(db.String(200), nullable=False)
     image_uri = db.Column(db.String(200), nullable=True)
+    details = db.Column(db.Text, nullable=True)
+
+    benefits = db.relationship('MasterDataProductsBenefits', backref='product', lazy=True, cascade="all, delete-orphan")
 
     def __repr__(self):
         return f'<MasterDataProducts {self.id}, alias: {self.alias}, name: {self.name}>'
 
+
+class MasterDataProductsBenefits(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    master_data_product_id = db.Column(db.Integer, db.ForeignKey('master_data_products.id'), nullable=False)
+    benefit = db.Column(db.Text, nullable=False)
+
+    def __repr__(self):
+        return f'<MasterDataProductsBenefits {self.id}, product_id: {self.master_data_product_id}>'
 
 class MasterDataSegmentation(db.Model):
     __tablename__ = "master_data_segmentation"
