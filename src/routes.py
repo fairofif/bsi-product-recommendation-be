@@ -44,7 +44,25 @@ def recommendations():
         # Get recommended products
         result = recommend_products(age, salary_range.id, job_type.id)
 
-
+        if segmentation == "Eksplorator Finansial":
+            return jsonify({
+                "user_id": new_user.id,
+                "segmentation": segmentation,
+                "products": [
+                    {
+                        "alias": "tabungan-wadiah",
+                        "name": "Tabungan Wadiah"
+                    },
+                    {
+                        "alias": "tabungan-mudharabah",
+                        "name": "Tabungan Mudharabah"
+                    },
+                    {
+                        "alias": "zifwaf",
+                        "name": "ZIFWAF"
+                    }
+                ]
+            }), 201
 
         return jsonify({
             "user_id": new_user.id,

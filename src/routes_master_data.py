@@ -1,6 +1,6 @@
 from flask import request, jsonify
 from src import app, db
-from src.models import MasterDataProducts
+from src.models import MasterDataProducts, MasterDataProductsBenefits
 
 @app.route('/products', methods=['GET'])
 def products():
@@ -41,12 +41,17 @@ def products_by_alias(alias):
                 "datas": None
             }), 404
 
+        # Fetch benefits for the product
+        benefits = MasterDataProductsBenefits.query.filter_by(master_data_product_id=product.id).all()
+
         product_data = {
             "id": product.id,
             "alias": product.alias,
             "name": product.name,
             "desc": product.desc,
-            "image_uri": product.image_uri
+            "image_uri": product.image_uri,
+            "details": product.details,
+            "benefits": [benefit.benefit for benefit in benefits]  # Extract benefit descriptions
         }
 
         response = {
