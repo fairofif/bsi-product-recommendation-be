@@ -51,15 +51,21 @@ def recommendations():
                 "products": [
                     {
                         "alias": "tabungan-wadiah",
-                        "name": "Tabungan Wadiah"
+                        "name": "Tabungan Wadiah",
+                        "desc": "Menjaga Harta Anda Tetap Murni",
+                        "image_uri": "https://i.postimg.cc/rs78t9Qw/tabungan-wadiah.jpg"
                     },
                     {
                         "alias": "tabungan-mudharabah",
-                        "name": "Tabungan Mudharabah"
+                        "name": "Tabungan Mudharabah",
+                        "desc": "Menjaga Harta Anda Tetap Murni",
+                        "image_uri": "https://i.postimg.cc/pXnVMgLh/tabungan-mudharabah.jpg"
                     },
                     {
-                        "alias": "zifwaf",
-                        "name": "ZIFWAF"
+                        "alias": "ziswaf",
+                        "name": "ZISWAF",
+                        "desc": "Berbagi Lebih Mudah, Pahala Lebih Berkah",
+                        "image_uri": "https://i.postimg.cc/4yydcyGB/ziswaf.jpg"
                     }
                 ]
             }), 201
