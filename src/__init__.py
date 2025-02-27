@@ -9,8 +9,10 @@ import pickle
 
 load_dotenv()
 
+origins = os.get_env('CORS_ORIGIN')
+
 app = Flask(__name__)
-cors = CORS(app, resources={"*": {"origins": ["http://192.168.21.215:81"]}})
+cors = CORS(app, resources={"*": {"origins": [origins]}})
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
