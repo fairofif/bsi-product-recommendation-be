@@ -50,17 +50,20 @@ def recommendations():
         segmentation = get_user_segmentation(age, salary_range.id, job_type.id)
 
         # Save user data using ID references
-        new_user_input = UserInput(age=encrypted_age, salary=salary_range.id, job=job_type.id, gender=gender, province=encrypted_province, segmentation=segmentation)
+        new_user_input = UserInput(age=encrypted_age, salary=salary_range.id, job=job_type.id, gender=gender, province=encrypted_province, segmentation=segmentation['name'])
         db.session.add(new_user_input)
         db.session.commit()
 
         # Get recommended products
         result = recommend_products(age, salary_range.id, job_type.id)
 
-        if segmentation == "Eksplorator Finansial":
+        if segmentation['name'] == "Eksplorator Finansial":
             return jsonify({
                 "user_input_id": new_user_input.id,
-                "segmentation": segmentation,
+                "segmentation": ({
+                    "name": "Eksplorator Finansial",
+                    "desc": "Selalu ingin tahu dan berani mencoba berbagai peluang finansial untuk pertumbuhan yang maksimal."
+                }),
                 "products": [
                     {
                         "alias": "tabungan-wadiah",
@@ -131,4 +134,6 @@ def get_user_segmentation(age, salary_id, job_id):
         or_(MasterDataSegmentation.job_type_id == job_id, MasterDataSegmentation.job_type_id.is_(None))
     ).first()
 
-    return segment.segment_name if segment else "Eksplorator Finansial"
+    print('GET USER SEGMENT', segment)
+
+    return ({"name": segment.segment_name, "desc": segment.segment_desc}) if segment else ({"name": "Eksplorator Finansial", "desc": "Selalu ingin tahu dan berani mencoba berbagai peluang finansial untuk pertumbuhan yang maksimal."})

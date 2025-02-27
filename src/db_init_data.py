@@ -35,35 +35,35 @@ def init_products():
 
 def init_segmentation():
     initial_segmentations = [
-        MasterDataSegmentation(segment_name="Anak Sholeh", min_age=0, max_age=16, salary_range_id=None, job_type_id=0),  # Pelajar
+        MasterDataSegmentation(segment_name="Anak Sholeh", segment_desc="Generasi muda yang ceria, penuh semangat, dan mulai belajar menabung sesuai prinsip syariah.", min_age=0, max_age=16, salary_range_id=None, job_type_id=0),  # Pelajar
 
-        MasterDataSegmentation(segment_name="Pemula Mandiri", min_age=None, max_age=None, salary_range_id=0, job_type_id=1),  # Mahasiswa
-        MasterDataSegmentation(segment_name="Pemula Mandiri", min_age=17, max_age=25, salary_range_id=1, job_type_id=0),  # Pelajar
-        MasterDataSegmentation(segment_name="Pemula Mandiri", min_age=17, max_age=25, salary_range_id=1, job_type_id=1),  # Mahasiswa
-        MasterDataSegmentation(segment_name="Pemula Mandiri", min_age=17, max_age=25, salary_range_id=1, job_type_id=2),  # Pegawai
+        MasterDataSegmentation(segment_name="Pemula Mandiri", segment_desc="Anak muda kreatif yang mulai mengelola keuangan sendiri dengan gaya hidup dinamis dan digital-savvy.", min_age=None, max_age=None, salary_range_id=0, job_type_id=1),  # Mahasiswa
+        MasterDataSegmentation(segment_name="Pemula Mandiri",segment_desc="Anak muda kreatif yang mulai mengelola keuangan sendiri dengan gaya hidup dinamis dan digital-savvy.", min_age=17, max_age=25, salary_range_id=1, job_type_id=0),  # Pelajar
+        MasterDataSegmentation(segment_name="Pemula Mandiri", segment_desc="Anak muda kreatif yang mulai mengelola keuangan sendiri dengan gaya hidup dinamis dan digital-savvy.", min_age=17, max_age=25, salary_range_id=1, job_type_id=1),  # Mahasiswa
+        MasterDataSegmentation(segment_name="Pemula Mandiri", segment_desc="Anak muda kreatif yang mulai mengelola keuangan sendiri dengan gaya hidup dinamis dan digital-savvy.", min_age=17, max_age=25, salary_range_id=1, job_type_id=2),  # Pegawai
 
-        MasterDataSegmentation(segment_name="Profesional Berkah", min_age=None, max_age=None, salary_range_id=2, job_type_id=1),  # Mahasiswa
-        MasterDataSegmentation(segment_name="Profesional Berkah", min_age=None, max_age=None, salary_range_id=3, job_type_id=1),  # Mahasiswa
-        MasterDataSegmentation(segment_name="Profesional Berkah", min_age=None, max_age=None, salary_range_id=4, job_type_id=1),  # Mahasiswa
-        MasterDataSegmentation(segment_name="Profesional Berkah", min_age=25, max_age=35, salary_range_id=2, job_type_id=2),  # Pegawai
-        MasterDataSegmentation(segment_name="Profesional Berkah", min_age=25, max_age=35, salary_range_id=3, job_type_id=2),  # Pegawai
+        MasterDataSegmentation(segment_name="Profesional Berkah", segment_desc="Ambisius dan visioner, mulai membangun karier dan merencanakan masa depan finansial yang berkah.", min_age=None, max_age=None, salary_range_id=2, job_type_id=1),  # Mahasiswa
+        MasterDataSegmentation(segment_name="Profesional Berkah", segment_desc="Ambisius dan visioner, mulai membangun karier dan merencanakan masa depan finansial yang berkah.", min_age=None, max_age=None, salary_range_id=3, job_type_id=1),  # Mahasiswa
+        MasterDataSegmentation(segment_name="Profesional Berkah", segment_desc="Ambisius dan visioner, mulai membangun karier dan merencanakan masa depan finansial yang berkah.", min_age=None, max_age=None, salary_range_id=4, job_type_id=1),  # Mahasiswa
+        MasterDataSegmentation(segment_name="Profesional Berkah", segment_desc="Ambisius dan visioner, mulai membangun karier dan merencanakan masa depan finansial yang berkah.", min_age=25, max_age=35, salary_range_id=2, job_type_id=2),  # Pegawai
+        MasterDataSegmentation(segment_name="Profesional Berkah", segment_desc="Ambisius dan visioner, mulai membangun karier dan merencanakan masa depan finansial yang berkah.", min_age=25, max_age=35, salary_range_id=3, job_type_id=2),  # Pegawai
 
-        MasterDataSegmentation(segment_name="Syariah Salary Club", min_age=21, max_age=None, salary_range_id=1, job_type_id=3),  # PNS/ASN/BUMN
-        MasterDataSegmentation(segment_name="Syariah Salary Club", min_age=21, max_age=None, salary_range_id=2, job_type_id=3),  # PNS/ASN/BUMN
-        MasterDataSegmentation(segment_name="Syariah Salary Club", min_age=21, max_age=None, salary_range_id=3, job_type_id=3),  # PNS/ASN/BUMN
-        MasterDataSegmentation(segment_name="Syariah Salary Club", min_age=21, max_age=None, salary_range_id=4, job_type_id=3),  # PNS/ASN/BUMN
-        MasterDataSegmentation(segment_name="Syariah Salary Club", min_age=21, max_age=None, salary_range_id=5, job_type_id=3),  # PNS/ASN/BUMN
+        MasterDataSegmentation(segment_name="Syariah Salary Club", segment_desc="Pegawai setia yang ingin mengelola gaji dengan bijak dan mencari keamanan finansial syariah.", min_age=21, max_age=None, salary_range_id=1, job_type_id=3),  # PNS/ASN/BUMN
+        MasterDataSegmentation(segment_name="Syariah Salary Club", segment_desc="Pegawai setia yang ingin mengelola gaji dengan bijak dan mencari keamanan finansial syariah.", min_age=21, max_age=None, salary_range_id=2, job_type_id=3),  # PNS/ASN/BUMN
+        MasterDataSegmentation(segment_name="Syariah Salary Club", segment_desc="Pegawai setia yang ingin mengelola gaji dengan bijak dan mencari keamanan finansial syariah.", min_age=21, max_age=None, salary_range_id=3, job_type_id=3),  # PNS/ASN/BUMN
+        MasterDataSegmentation(segment_name="Syariah Salary Club", segment_desc="Pegawai setia yang ingin mengelola gaji dengan bijak dan mencari keamanan finansial syariah.", min_age=21, max_age=None, salary_range_id=4, job_type_id=3),  # PNS/ASN/BUMN
+        MasterDataSegmentation(segment_name="Syariah Salary Club", segment_desc="Pegawai setia yang ingin mengelola gaji dengan bijak dan mencari keamanan finansial syariah.", min_age=21, max_age=None, salary_range_id=5, job_type_id=3),  # PNS/ASN/BUMN
 
-        MasterDataSegmentation(segment_name="Wirausahawan Sukses", min_age=25, max_age=45, salary_range_id=3, job_type_id=4),  # Wirausaha
-        MasterDataSegmentation(segment_name="Wirausahawan Sukses", min_age=25, max_age=45, salary_range_id=4, job_type_id=4),  # Wirausaha
+        MasterDataSegmentation(segment_name="Wirausahawan Sukses", segment_desc="Pekerja keras dan inovatif, terus mencari peluang bisnis halal untuk pertumbuhan yang berkelanjutan.", min_age=25, max_age=45, salary_range_id=3, job_type_id=4),  # Wirausaha
+        MasterDataSegmentation(segment_name="Wirausahawan Sukses", segment_desc="Pekerja keras dan inovatif, terus mencari peluang bisnis halal untuk pertumbuhan yang berkelanjutan.", min_age=25, max_age=45, salary_range_id=4, job_type_id=4),  # Wirausaha
 
-        MasterDataSegmentation(segment_name="Pilar Keluarga", min_age=35, max_age=None, salary_range_id=4, job_type_id=2),  # Pegawai
-        MasterDataSegmentation(segment_name="Pilar Keluarga", min_age=35, max_age=None, salary_range_id=5, job_type_id=2),  # Pegawai
+        MasterDataSegmentation(segment_name="Pilar Keluarga", segment_desc="Pribadi bijaksana yang memastikan kesejahteraan keluarga dengan pengelolaan finansial yang stabil.", min_age=35, max_age=None, salary_range_id=4, job_type_id=2),  # Pegawai
+        MasterDataSegmentation(segment_name="Pilar Keluarga", segment_desc="Pribadi bijaksana yang memastikan kesejahteraan keluarga dengan pengelolaan finansial yang stabil.", min_age=35, max_age=None, salary_range_id=5, job_type_id=2),  # Pegawai
 
-        MasterDataSegmentation(segment_name="Investor Sejati", min_age=35, max_age=None, salary_range_id=5, job_type_id=2),  # Pegawai
-        MasterDataSegmentation(segment_name="Investor Sejati", min_age=35, max_age=None, salary_range_id=5, job_type_id=4),  # Wirausaha
+        MasterDataSegmentation(segment_name="Investor Sejati", segment_desc="Visioner dan strategis, mengoptimalkan aset dengan investasi halal untuk warisan yang berkelanjutan.", min_age=35, max_age=None, salary_range_id=5, job_type_id=2),  # Pegawai
+        MasterDataSegmentation(segment_name="Investor Sejati", segment_desc="Visioner dan strategis, mengoptimalkan aset dengan investasi halal untuk warisan yang berkelanjutan.", min_age=35, max_age=None, salary_range_id=5, job_type_id=4),  # Wirausaha
 
-        MasterDataSegmentation(segment_name="Eksplorator Finansial", min_age=None, max_age=None, salary_range_id=None, job_type_id=None),
+        MasterDataSegmentation(segment_name="Eksplorator Finansial", segment_desc="Selalu ingin tahu dan berani mencoba berbagai peluang finansial untuk pertumbuhan yang maksimal.", min_age=None, max_age=None, salary_range_id=None, job_type_id=None),
     ]
 
     db.session.bulk_save_objects(initial_segmentations)
@@ -114,7 +114,7 @@ def init_product_benefits():
                                              ]),
         # BSI SimPel
         (products.get("bsi-simpel"), ["Hemat, Bebas biaya administrasi bulanan",
-                                      "Praktis, Kartu ATM dapat digunakan di seluruh ATM BSI, ATM Link, ATM Bersama, ATM Prima, ATM Berlogo GPN"
+                                      "Praktis, Kartu ATM dapat digunakan di seluruh ATM BSI, ATM Link, ATM Bersama, ATM Prima, ATM Berlogo GPN",
                                       "Mudah, Fasilitas e-Channel untuk kemudahan transaksi"
                                       ]),
         # Tabungan Wadiah
@@ -131,7 +131,7 @@ def init_product_benefits():
                                                ]),
         # Deposito
         (products.get("deposito"), ["Tenor Fleksibel - Pilihan mulai 1, 3, hingga 6 bulan",
-                                    "Bagi Hasil Kompetitif - Keuntungan dibagi sesuai nisbah yang disepakati"
+                                    "Bagi Hasil Kompetitif - Keuntungan dibagi sesuai nisbah yang disepakati",
                                     "Syariah & Transparan - Bebas riba, sesuai prinsip syariah",
                                     "Mudah & Praktis - Bisa dibuka via mobile, penutupan & perubahan ARO di BYOND"
                                     ]),
@@ -161,7 +161,7 @@ def init_product_benefits():
                                      ]),
         # BSI Cicil Emas
         (products.get("bsi-cicil-emas"), ["Cicilan Tetap & Ringan - Tidak terpengaruh kenaikan harga emas",
-                                          "Aman & Terlindungi - Emas disimpan di bank dan diasuransikan"
+                                          "Aman & Terlindungi - Emas disimpan di bank dan diasuransikan",
                                           "Lindung Nilai Aset - Investasi stabil untuk masa depan",
                                           "Mudah & Praktis - Cara sederhana untuk memulai investasi emas"
                                           ]),
