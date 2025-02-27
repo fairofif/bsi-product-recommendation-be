@@ -10,9 +10,9 @@ def recommend_products(age, salary, job):
     for product, m in model_result.items():
         probabilities = m.predict_proba(np.array([[age,salary,job]]))
         product_probabilities[product] = probabilities[0, 1]
-    print(product_probabilities.items())
+
     recommended_products = [product for product, probability in product_probabilities.items() if probability >= 0.8]
-    print(recommend_products)
+
     return recommended_products
 
 def encrypt_data(data):
