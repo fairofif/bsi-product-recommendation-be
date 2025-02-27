@@ -134,6 +134,4 @@ def get_user_segmentation(age, salary_id, job_id):
         or_(MasterDataSegmentation.job_type_id == job_id, MasterDataSegmentation.job_type_id.is_(None))
     ).first()
 
-    print('GET USER SEGMENT', segment)
-
     return ({"name": segment.segment_name, "desc": segment.segment_desc}) if segment else ({"name": "Eksplorator Finansial", "desc": "Selalu ingin tahu dan berani mencoba berbagai peluang finansial untuk pertumbuhan yang maksimal."})
