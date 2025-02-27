@@ -9,7 +9,7 @@ import pickle
 
 load_dotenv()
 
-origins = os.get_env('CORS_ORIGIN')
+origins = os.getenv('CORS_ORIGIN')
 
 app = Flask(__name__)
 cors = CORS(app, resources={"*": {"origins": [origins]}})
