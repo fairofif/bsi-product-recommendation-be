@@ -56,8 +56,6 @@ def recommendations():
 
         # Get recommended products
         result = recommend_products(age, salary_range.id, job_type.id)
-        print(result)
-        print(format_products(result))
 
         if segmentation['name'] == "Eksplorator Finansial":
             return jsonify({
@@ -135,7 +133,5 @@ def get_user_segmentation(age, salary_id, job_id):
         or_(MasterDataSegmentation.salary_range_id == salary_id, MasterDataSegmentation.salary_range_id.is_(None)),
         or_(MasterDataSegmentation.job_type_id == job_id, MasterDataSegmentation.job_type_id.is_(None))
     ).first()
-
-    print('GET USER SEGMENT', segment)
 
     return ({"name": segment.segment_name, "desc": segment.segment_desc}) if segment else ({"name": "Eksplorator Finansial", "desc": "Selalu ingin tahu dan berani mencoba berbagai peluang finansial untuk pertumbuhan yang maksimal."})

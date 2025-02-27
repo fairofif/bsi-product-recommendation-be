@@ -27,13 +27,13 @@ def init_test_db_jobs():
     init_segmentation()
     init_provinces()
 
-def clear_unittest_records(unit_input_id):
+def clear_unittest_records(user_input_id):
     with app.app_context():
         try:
-            db.session.query(UserFirstChoice).filter_by(unit_input_id=unit_input_id).delete()
-            db.session.query(UserInput).filter_by(id=unit_input_id).delete()
+            db.session.query(UserFirstChoice).filter_by(user_input_id=user_input_id).delete()
+            db.session.query(UserInput).filter_by(id=user_input_id).delete()
             db.session.commit()
-            print(f"Test records with unit_input_id {unit_input_id} deleted successfully.")
+            print(f"Test records with user_input_id {user_input_id} deleted successfully.")
         except Exception as e:
             db.session.rollback()
             print(f"Error deleting test records: {e}")

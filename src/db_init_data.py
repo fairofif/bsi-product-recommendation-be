@@ -58,7 +58,6 @@ def init_segmentation():
         MasterDataSegmentation(segment_name="Wirausahawan Sukses", segment_desc="Pekerja keras dan inovatif, terus mencari peluang bisnis halal untuk pertumbuhan yang berkelanjutan.", min_age=25, max_age=45, salary_range_id=4, job_type_id=4),  # Wirausaha
 
         MasterDataSegmentation(segment_name="Pilar Keluarga", segment_desc="Pribadi bijaksana yang memastikan kesejahteraan keluarga dengan pengelolaan finansial yang stabil.", min_age=35, max_age=None, salary_range_id=4, job_type_id=2),  # Pegawai
-        MasterDataSegmentation(segment_name="Pilar Keluarga", segment_desc="Pribadi bijaksana yang memastikan kesejahteraan keluarga dengan pengelolaan finansial yang stabil.", min_age=35, max_age=None, salary_range_id=5, job_type_id=2),  # Pegawai
 
         MasterDataSegmentation(segment_name="Investor Sejati", segment_desc="Visioner dan strategis, mengoptimalkan aset dengan investasi halal untuk warisan yang berkelanjutan.", min_age=35, max_age=None, salary_range_id=5, job_type_id=2),  # Pegawai
         MasterDataSegmentation(segment_name="Investor Sejati", segment_desc="Visioner dan strategis, mengoptimalkan aset dengan investasi halal untuk warisan yang berkelanjutan.", min_age=35, max_age=None, salary_range_id=5, job_type_id=4),  # Wirausaha
