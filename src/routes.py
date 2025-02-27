@@ -56,6 +56,8 @@ def recommendations():
 
         # Get recommended products
         result = recommend_products(age, salary_range.id, job_type.id)
+        print(result)
+        print(format_products(result))
 
         if segmentation['name'] == "Eksplorator Finansial":
             return jsonify({
