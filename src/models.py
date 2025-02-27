@@ -62,6 +62,7 @@ class MasterDataSegmentation(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     segment_name = db.Column(db.String(50), nullable=False)
+    segment_desc = db.Column(db.Text, nullable=False)
     min_age = db.Column(db.Integer, nullable=True)
     max_age = db.Column(db.Integer, nullable=True)
 
